@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # test_jokenpo.py
 import jokenpo as jp
 from constantes import PEDRA, PAPEL, TESOURA, EMPATE

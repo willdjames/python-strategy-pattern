@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # objetos.py
 from constantes import PEDRA, PAPEL, TESOURA, EMPATE
 
