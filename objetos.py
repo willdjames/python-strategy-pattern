@@ -1,14 +1,24 @@
 #!/usr/bin/env python3
 # objetos.py
+from __future__ import annotations
+from abc import ABC, abstractmethod
 from constantes import PEDRA, PAPEL, TESOURA, EMPATE
 
-class Pedra:
+class Objeto(ABC):
 
-    def __init__(self):
+    sinal: str
+
+    @abstractmethod
+    def contra(self, objeto: Objeto) -> str:
+        pass
+
+
+class Pedra(Objeto):
+
+    def __init__(self) -> None:
         self.sinal = PEDRA
     
-
-    def contra(self, objeto):
+    def contra(self, objeto: Objeto) -> str:
         resultado = EMPATE
 
         if objeto.sinal == TESOURA:
@@ -20,12 +30,12 @@ class Pedra:
         return resultado
 
 
-class Tesoura:
+class Tesoura(Objeto):
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.sinal = TESOURA
 
-    def contra(self, objeto):
+    def contra(self, objeto: Objeto) -> str:
         resultado = EMPATE
         
         if objeto.sinal == PAPEL:
@@ -37,12 +47,12 @@ class Tesoura:
         return resultado
 
 
-class Papel:
+class Papel(Objeto):
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.sinal = PAPEL
     
-    def contra(self, objeto):
+    def contra(self, objeto: Objeto) -> str:
         resultado = EMPATE
         
         if objeto.sinal == PEDRA:
